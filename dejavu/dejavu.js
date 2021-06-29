@@ -7,10 +7,11 @@ const correct_icon = '<span class="material-icons">done</span>';
 class Game {
   constructor() {
     this.target = this.generate_number();
+    document.body.classList.remove('game-over');
   }
 
   generate_number(range=1000) {
-    return Math.round(Math.random() * 100);
+    return Math.round(Math.random() * 1000);
   }
 
   process_guess(input) {
@@ -89,6 +90,7 @@ window.addEventListener('load', function () {
     document.getElementById('submit').removeAttribute('disabled');
     document.getElementById('guess').removeAttribute('disabled');
     feedback.className = '';
+    feedback.textContent = '';
     guess_el.value = '';
     guess_el.focus();
   });
