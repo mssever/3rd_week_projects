@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deja Vu</title>
+    <link rel="stylesheet" href="dejavu.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+
+</head>
+<body>
+    <div class="game">
+        <h1>Deja Vu</h1>
+        <form id="guess-form">
+            <p>Guess a number between 1 and 100.</p>
+            <div id="guess-container">
+                <input type="number" name="guess" id="guess" placeholder="Guess..." aria-label="Enter your guess here">
+                <button id="submit" type="submit">Guess</button>
+                <span id='feedback'></span>
+                <button id="restart">Restart</button>
+            </div>
+        </form>
+    </div>
+        <div class="guesses">
+        <h2>Guesses</h2>
+        <ol id="previous-guesses">
+        </ol>
+    </div>
+    <script src="dejavu.js"></script>
+</body>
+</html>
