@@ -11,7 +11,7 @@ class Game {
   }
 
   generate_number(range=1000) {
-    return Math.round(Math.random() * 1000);
+    return Math.round(Math.random() * range);
   }
 
   process_guess(input) {
