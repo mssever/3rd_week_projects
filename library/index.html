@@ -14,7 +14,7 @@
         text-align: center;
       "
     >
-      <div>
+      <div><form>
         <h1>Library Project</h1>
         <div id="library">
           <!-- Add table here -->
@@ -23,26 +23,22 @@
               <tr>
                 <th>Title</th>
                 <th>Author</th>
+                <th>ISBN</th>
                 <th>Read</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody id="data">
+              <tr id="1431">
                 <td>Name of the Wind</td>
                 <td>Patrick Rothfuss</td>
+                <td>1431</td>
                 <td>
-                  <input
-                    type="checkbox"
-                    name="read"
-                    id="readLibraryCheckbox"
-                    checked
-                    disabled
-                  />
+                  <input type="checkbox" name="read" id="read1431" checked disabled>
                 </td>
               </tr>
             </tbody>
           </table>
-        </div>
+        </form></div>
     </main>
 
     <script src="app.js"></script>
