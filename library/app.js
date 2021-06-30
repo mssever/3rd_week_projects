@@ -136,6 +136,7 @@ function add_row(link) {
   isbn_cell.appendChild(isbn);
   read_cell.appendChild(read);
   read_cell.appendChild(submit);
+  title.focus();
 
   submit.addEventListener('click', () => {
     let book = new Book(isbn.value, title.value, author.value, read.checked);
@@ -143,5 +144,5 @@ function add_row(link) {
     book.addToTable(row);
     add_link();
     console.debug(library.print());
-  })
+  });
 }
