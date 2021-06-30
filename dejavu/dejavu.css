@@ -6,6 +6,7 @@ html {
   font-size: 20px;
   font-family: Ubuntu, Verdana, Geneva, Tahoma, sans-serif;
 }
+
 body {
   background-color: #900;
   display: flex;
