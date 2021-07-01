@@ -25,8 +25,8 @@ class Game {
   }
 
   end() {
-    document.getElementById('submit').setAttribute('disabled', true);
-    document.getElementById('guess').setAttribute('disabled', true);
+    document.querySelector('#submit').setAttribute('disabled', true);
+    document.querySelector('#guess').setAttribute('disabled', true);
     document.body.classList.add('game-over');
   }
 }
@@ -36,7 +36,7 @@ function createListItem(guess, text) {
     return `<div class="entry"><span class="guess">${guess}</span>: ${icon} <span class="message">${text}</span></div>`;
   }
 
-  let list = document.getElementById('previous-guesses');
+  let list = document.querySelector('#previous-guesses');
   let li = document.createElement('li');
   if (text == 'Correct') {
     li.classList.add('correct');
@@ -56,13 +56,13 @@ window.addEventListener('load', function () {
 
   // initialize
   let game = new Game();
-  let feedback = document.getElementById('feedback');
-  let guess_el = document.getElementById('guess');
+  let feedback = document.querySelector('#feedback');
+  let guess_el = document.querySelector('#guess');
   guess_el.value = '';
   guess_el.focus();
 
   // play the game
-  document.getElementById('submit').addEventListener('click', () => {
+  document.querySelector('#submit').addEventListener('click', () => {
     let guess = guess_el.value * 1;
     let result = game.process_guess(guess);
     let result_str;
@@ -84,11 +84,11 @@ window.addEventListener('load', function () {
   });
 
   // restart the game
-  document.getElementById('restart').addEventListener('click', () => {
+  document.querySelector('#restart').addEventListener('click', () => {
     game = new Game();
-    document.getElementById('previous-guesses').innerHTML = '';
-    document.getElementById('submit').removeAttribute('disabled');
-    document.getElementById('guess').removeAttribute('disabled');
+    document.querySelector('#previous-guesses').innerHTML = '';
+    document.querySelector('#submit').removeAttribute('disabled');
+    document.querySelector('#guess').removeAttribute('disabled');
     feedback.className = '';
     feedback.textContent = '';
     guess_el.value = '';
@@ -96,8 +96,20 @@ window.addEventListener('load', function () {
   });
 
   // prevent the form from being submitted
-  document.getElementById('guess-form').addEventListener('submit', (e) => {
+  document.querySelector('#guess-form').addEventListener('submit', (e) => {
     e.preventDefault();
     return true;
   });
+
+  (function setBackground() {
+    const hex = '990000';
+    const borderWidth = 2;
+    const tiles = 50;
+    const tileSize = 7;
+    const url = `https://php-noise.com/noise.php?hex=${hex}&tiles=${tiles}&tileSize=${tileSize}&borderWidth=${borderWidth}&json`;
+    fetch(url).then(async (response) => {
+      const data = await response.json();
+      document.body.style.backgroundImage = `url(${data.uri})`;
+    });
+  })();
 });
