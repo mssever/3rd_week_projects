@@ -101,15 +101,14 @@ window.addEventListener('load', function () {
     return true;
   });
 
-  (function setBackground() {
+  (async function setBackground() {
     const hex = '990000';
     const borderWidth = 2;
     const tiles = 50;
     const tileSize = 7;
     const url = `https://php-noise.com/noise.php?hex=${hex}&tiles=${tiles}&tileSize=${tileSize}&borderWidth=${borderWidth}&json`;
-    fetch(url).then(async (response) => {
-      const data = await response.json();
-      document.body.style.backgroundImage = `url(${data.uri})`;
-    });
+    const response = await fetch(url);
+    const data = await response.json();
+    document.body.style.backgroundImage = `url(${data.uri})`;
   })();
 });
